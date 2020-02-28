@@ -1,0 +1,75 @@
+//
+509. Fibonacci Number
+Easy
+
+415
+
+177
+
+Add to List
+
+Share
+The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. That is,
+
+F(0) = 0,   F(1) = 1
+F(N) = F(N - 1) + F(N - 2), for N > 1.
+Given N, calculate F(N).
+//
+
+
+
+
+
+
+
+
+class Solution {
+    public int fib(int N) 
+    {
+        if (N == 0)
+            return 0;
+        if (N == 1 || N == 2 )
+            return 1;
+        int[] fib = new int[N+1];
+        fib[0] = 0;
+        fib[1] = 1;
+        fib[2] = 1;
+        for (int i=3; i<N+1; i++)
+        {
+            fib[i]= fib[i-1] + fib[i-2];
+            //System.out.print("i="+i+"fib[i]="+fib[i]);
+        }
+        return fib[N];
+    }
+}
+
+
+
+class Solution {
+    public int fib(int N) 
+    {
+        Integer[] memo = new Integer[N+1];
+        
+        int result = fib_child(N,memo);
+        return result;
+    }
+    public int fib_child(int n,Integer[] memo)
+    {
+        int result;
+        if (memo[n]!=null)
+            return memo[n];
+        if(n==0){
+            result = 0;
+        }
+        else if (n == 1 || n == 2)
+        {
+            result = 1;
+        }
+        else
+        {
+            result = fib_child(n-1,memo) + fib_child(n-2,memo);
+            memo[n] = result;
+        }
+        return result;
+    }
+}
