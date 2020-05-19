@@ -16,6 +16,7 @@ Input: [7,6,4,3,1]
 Output: 0
 Explanation: In this case, no transaction is done, i.e. max profit = 0. */
 
+/* BAD SOLUTION
 class Solution {
     public int maxProfit(int[] prices) 
     {
@@ -57,5 +58,25 @@ class Solution {
             }
         }
         return f_sum;    
+    }
+}
+*/
+
+/* GOOD SOLUTION */
+
+class Solution {
+    public int maxProfit(int[] prices) 
+    {
+        int maxCurr = 0;
+        int maxSoFar = 0;
+        
+        for(int i = 1; i < prices.length; i++)
+        {
+            maxCurr += prices[i] - prices[i-1];
+            if(maxCurr < 0) maxCurr = 0;
+            
+            if(maxCurr>maxSoFar) maxSoFar = maxCurr;
+        }
+        return maxSoFar;
     }
 }
