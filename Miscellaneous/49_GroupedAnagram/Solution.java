@@ -14,7 +14,7 @@
  * All inputs will be in lowercase.
  * The order of your output does not matter.
  */
-
+/*
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
         // we create a hash of the string and store them in the hashmap.
@@ -56,5 +56,24 @@ class Solution {
         }
         
         return new ArrayList<List<String>>(map.values());
+    }
+}
+*/
+
+/* IMPORVED VERSION */
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) 
+    {
+        HashMap<String, ArrayList<String>> map = new HashMap<>();
+        for(String s : strs)
+        {
+            char[] temp = s.toCharArray();
+            Arrays.sort(temp);
+            String key = String.valueOf(temp);
+            if(!map.containsKey(key)) map.put(key, new ArrayList<>());
+            
+            map.get(key).add(s);
+        }
+        return new ArrayList<>(map.values());
     }
 }
