@@ -43,12 +43,12 @@ class Solution {
             if(curr.val < x)
             {
                 l1.next = curr;
-                l1 = curr;
+                l1 = l1.next;
             }
             if(curr.val >= x)
             {
                 l2.next = curr;
-                l2 = curr;
+                l2 = l2.next;
             }
 
             curr = curr.next;
