@@ -37,7 +37,7 @@ return its bottom-up level order traversal as:
  * 	public List<List<Integer>> levelOrderBottom(TreeNode root)
  * 	{
  * 		Queue<TreeNode> queue = new Queue<TreeNode>();
- * 		List<List<Integer>> result = new LinkedList<List<Integer>>();
+ * 		List<List<Integer>> result = new ArrayList<List<Integer>>();
  *
  *		if(root == null) return result;
  *
@@ -66,7 +66,7 @@ return its bottom-up level order traversal as:
 {
 	public List<List<Integer>> levelOrderBottom(TreeNode root)
 	{
-		List<List<Integer>> result = new LinkedList<List<Integer>>();
+		List<List<Integer>> result = new ArrayList<List<Integer>>();
 		dfs(result, root, 0);
 		return result;
 	}
@@ -76,7 +76,7 @@ return its bottom-up level order traversal as:
 		if(root == null) return;
 		if(level >= result.size())
 		{
-			result.add(0, new LinkedList<Integer>() );
+			result.add(0, new ArrayList<Integer>() );
 		}
 
 		dfs(result, root.left, level + 1);
