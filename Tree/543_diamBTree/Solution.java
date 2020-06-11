@@ -40,9 +40,9 @@ class Solution
 
 		int left = dfs(root.left);
 		int right = dfs(root.right);
-		max = Math.max();
+		max = Math.max(max, left + right); // to find the largest global length
 
-		return Math.max(left, right) + 1;
+		return Math.max(left, right) + 1; // sending back current+1 for the current node
 	}
 
 }
