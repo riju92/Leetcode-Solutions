@@ -48,7 +48,7 @@ class Solution
 	public int pathSum(TreeNode root, int sum)
 	{
 		if(root == null) return 0;
-		return temp(root. sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
+		return temp(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
 	}
 
 	public int temp(TreeNode curr, int sum)
