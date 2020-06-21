@@ -42,17 +42,17 @@ class Solution
 
 		int index = 0;
 
-		Deque<Integer> q = new LinkedList<>();
+		Deque<Integer> q = new LinkedList<>();  //to store index
 
 		for(int i = 0; i < nums.length; i++)
 		{
-			while(!q.isEmpty() && q.peek() < i - k + 1) q.poll();
+			while(!q.isEmpty() && q.peek() < i - k + 1) q.poll(); //remove numbers out of range k
 
-			while(!q.isEmpty() && nums[q.peekLast()] < nums[i]) q.pollLast();
+			while(!q.isEmpty() && nums[q.peekLast()] < nums[i]) q.pollLast(); //remove smallest numbers in range k
 
 			q.offer(i);
 
-			if(i >= k - 1) result[index++] = nums[q.peek()];
+			if(i >= k - 1) result[index++] = nums[q.peek()]; //q contains index...result contains content
 
 		}
 
