@@ -26,7 +26,7 @@ class Solution
 		result.add(newInterval);
 		for(int[] interval : intervals)
 		{
-			if(interval[0] < newInterval[1])
+			if(interval[0] <= newInterval[1])
 				newInterval[1] = Math.max(interval[1], newInterval[1]);
 			else
 			{
